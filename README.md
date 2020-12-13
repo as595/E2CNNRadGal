@@ -61,4 +61,8 @@ The repo will then appear as a folder (left hand side) and you can run the code 
 
 ## Data
 
-For the moment I have included a subset of the full SDSS dataset: ```sdss_10k.pkl```. This file contains 10,000 randomly selected objects from the full 2.4 million object spectroscopically labelled training data set and can be used for quick testing of code. Once you're using the GPU on the university cluster then you should switch to using the full data set. 
+Configuration files are provided for experiments using the [FRDEEP]() and [MiraBest]() batched data sets. If you use these data sets please cite:
+
+* [FRDEEP]() : Hongming Tang, Anna M. M. Scaife & J. Paddy Leahy, *Transfer learning for radio galaxy classification*, **2019**, MNRAS, 488, 3358 [arXiv](https://arxiv.org/abs/1903.11921)
+
+* [MiraBest]() : Fiona Porter, Anna M. M. Scaife et al., **2020** [zenodo]()

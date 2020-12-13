@@ -2,6 +2,7 @@ import torch
 
 from torch.utils.data import Dataset
 import torchvision.transforms as transforms
+from torch.utils.data import Subset
 from torchsummary import summary
 
 import numpy as np
@@ -26,7 +27,7 @@ csvfile       = 'frdeepf_lenet.csv' # output file
 datamean      = 0.0019
 datastd       = 0.0270
 quiet         = False
-early_stopping= True
+early_stopping= False
 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
@@ -127,8 +128,8 @@ if early_stopping:
 # -----------------------------------------------------------------------------
 # create outputs:
 
-if not early_stopping:
-    torch.save(model.state_dict(), outfile)
+#if not early_stopping:
+#    torch.save(model.state_dict(), outfile)
 
 
 # -----------------------------------------------------------------------------

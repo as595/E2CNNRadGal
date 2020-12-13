@@ -52,9 +52,9 @@ class VanillaLeNet(nn.Module):
         
         # check device for model:
         device = self.dummy.device
-        mask = mask.to(device=device)
+        mask = self.mask.to(device=device)
         
-        x = x*self.mask
+        x = x*mask
         
         x = F.relu(self.conv1(x))
         x = F.max_pool2d(x, 2)

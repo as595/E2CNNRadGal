@@ -24,7 +24,7 @@ nclass        = 2                   # number of output classes
 csvfile       = 'frdeepf_cnlenet.csv' # output file
 datamean      = 0.0019
 datastd       = 0.0270
-quiet         = False
+quiet         = True
 early_stopping= False
 Nrot          = int(sys.argv[-1])
 

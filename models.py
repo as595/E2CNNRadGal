@@ -50,6 +50,10 @@ class VanillaLeNet(nn.Module):
         
     def forward(self, x):
         
+        # check device for model:
+        device = self.dummy.device
+        mask = mask.to(device=device)
+        
         x = x*self.mask
         
         x = F.relu(self.conv1(x))

@@ -17,6 +17,7 @@ from FRDEEP import FRDEEPF
 # -----------------------------------------------------------------------------
 
 epochs        = 600                 # number of training epochs
+frac_val      = 0.2                 # validation fraction
 imsize        = 50                  # size of input images
 batch_size    = 50                  # batch size for mini-batching
 learning_rate = 1e-4                # Initial learning rate

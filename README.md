@@ -9,7 +9,7 @@ The input parameters for each run are contained in the configuration files locat
 ```python
 python main.py --config configs/config_fr_lenet.txt
 ```
-
+An overview of the configuration file format can be found [here](./configs/README.md).
 
 
 ## Using a Kaggle kernel

@@ -10,20 +10,20 @@ The input parameters for each run are contained in the configuration files locat
 python main.py --config configs/config_fr_lenet.txt
 ```
 
-Each configuration file contains the parameters for the model, data, optimiser etc. These look like:
+Each configuration file contains the parameters for the model, data, optimiser etc. The format is:
 
 ```text
 [model]
-base: 'VanillaLeNet'
-nrot: None
-early_stopping: True
-quiet: True
+base: 'VanillaLeNet'            # network: [VanillaLeNet, CNSteerableLeNet, DNSteerableLeNet]
+nrot: None                      # number of rotations for E(2) subgroups
+early_stopping: True            # early stopping [True/False]
+quiet: True                     # verbose or not
 
 [data]
-dataset: 'FRDEEPF'
-datadir: 'frdeepf'
-datamean: 0.0019
-datastd: 0.0270
+dataset: 'FRDEEPF'              # dataset class [FRDEEPF, MBFRConfident]
+datadir: 'frdeepf'              # name of directory to download data into
+datamean: 0.0019                # mean for normalisation
+datastd: 0.0270                 # stdev for normalisation  
 
 [training]
 batch_size: 50                  # samples per minibatch
@@ -35,8 +35,8 @@ lr0: 0.0001                     # initial learning rate
 decay: 0.000001                 # weight decay
 
 [output]
-csvfile: 'frdeepf_lenet.csv'
-modfile: 'frdeepf_lenet.pt'
+csvfile: 'frdeepf_lenet.csv'    # output file for loss, accuracy etc per epoch 
+modfile: 'frdeepf_lenet.pt'     # output file for pytorch model
 ```
 
 

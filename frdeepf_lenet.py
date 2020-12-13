@@ -26,7 +26,7 @@ csvfile       = 'frdeepf_lenet.csv' # output file
 datamean      = 0.0019
 datastd       = 0.0270
 quiet         = False
-early_stopping= False
+early_stopping= True
 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
@@ -127,8 +127,8 @@ if early_stopping:
 # -----------------------------------------------------------------------------
 # create outputs:
 
-#if not early_stopping:
-#    torch.save(model.state_dict(), outfile)
+if not early_stopping:
+    torch.save(model.state_dict(), outfile)
 
 
 # -----------------------------------------------------------------------------

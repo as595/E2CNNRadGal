@@ -1,0 +1,27 @@
+[model]
+base: 'CNSteerableLeNet'
+nrot: 16
+early_stopping: True
+quiet: True
+
+[data]
+dataset: 'MBFRConfident'
+datadir: 'mirabest'
+datamean: 0.0031
+datastd: 0.0350
+
+[training]
+batch_size: 50                  # samples per minibatch
+frac_val: 0.2                   # fraction of training set for validation
+epochs: 600                     # total number of epochs
+imsize: 50                      # pixels on side of image
+num_classes: 2                  # number of target classes
+lr0: 0.0001                     # initial learning rate
+decay: 0.000001                 # weight decay
+
+[output]
+csvfile: 'mirabest_cnlenet.csv'
+modfile: 'mirabest_cnlenet.pt'
+
+[metrics]
+outputdir: 'mb_cn16lenet' 

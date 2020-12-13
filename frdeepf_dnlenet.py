@@ -4,6 +4,7 @@ from torch.utils.data import Dataset
 import torchvision.transforms as transforms
 from torchsummary import summary
 
+import os, sys
 import numpy as np
 import csv
 from PIL import Image
@@ -26,7 +27,7 @@ datamean      = 0.0019
 datastd       = 0.0270
 quiet         = False
 early_stopping= False
-Nrot          = 4
+Nrot          = int(sys.argv[-1])
 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------

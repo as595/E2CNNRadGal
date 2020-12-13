@@ -2,24 +2,50 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+import argparse
+import configparser as ConfigParser
+import ast
+
 import math
 
+# ----------------------------------------------------------
+
+def parse_args():
+    """
+        Parse the command line arguments
+        """
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-C','--config', default="myconfig.txt", required=True, help='Name of the input config file')
+    
+    args, __ = parser.parse_known_args()
+    
+    return vars(args)
+
 # -----------------------------------------------------------
 
-def get_lr(epoch, lr0, gamma):
+def parse_config(filename):
+    
+    config = ConfigParser.SafeConfigParser(allow_no_value=True)
+    config.read(filename)
+    
+    # Build a nested dictionary with tasknames at the top level
+    # and parameter values one level down.
+    taskvals = dict()
+    for section in config.sections():
+        
+        if section not in taskvals:
+            taskvals[section] = dict()
+        
+        for option in config.options(section):
+            # Evaluate to the right type()
+            try:
+                taskvals[section][option] = ast.literal_eval(config.get(section, option))
+            except (ValueError,SyntaxError):
+                err = "Cannot format field '{0}' in config file '{1}'".format(option,filename)
+                err += ", which is currently set to {0}. Ensure strings are in 'quotes'.".format(config.get(section, option))
+                raise ValueError(err)
 
-    return lr0*gamma**epoch
-    
-# -----------------------------------------------------------
-    
-def get_momentum(epoch, p_i, p_f, T):
-
-    if epoch<T:
-        p = (epoch/T)*p_f + (1 - (epoch/T))*p_i
-    else:
-        p = p_f
-    
-    return p
+    return taskvals, config
 
 # -----------------------------------------------------------
 

@@ -26,7 +26,7 @@ datamean      = 0.0019
 datastd       = 0.0270
 quiet         = False
 early_stopping= False
-Nrot          = 8
+Nrot          = int(sys.argv[-1])
 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
@@ -49,19 +49,25 @@ normalise= transforms.Normalize((datamean,), (datastd,))
 transform = transforms.Compose([
     crop,
     pad,
-#    resize1,
     transforms.RandomRotation(360, resample=Image.BILINEAR, expand=False),
-#    resize2,
     totensor,
     normalise,
 ])
 
 
 train_data = FRDEEPF('first', train=True, download=True, transform=transform)
-train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, shuffle=True)
 
-test_data = FRDEEPF('first', train=False, transform=transform)
-test_loader = torch.utils.data.DataLoader(test_data, batch_size=batch_size, shuffle=True)
+dataset_size = len(train_data)
+nval = int(frac_val*dataset_size)
+
+indices = list(range(dataset_size))
+train_indices, val_indices = indices[nval:], indices[:nval]
+
+train_sampler = Subset(train_data, train_indices)
+valid_sampler = Subset(train_data, val_indices)
+
+train_loader = torch.utils.data.DataLoader(train_sampler, batch_size=batch_size, shuffle=True)
+test_loader = torch.utils.data.DataLoader(valid_sampler, batch_size=batch_size, shuffle=True)
 
 # -----------------------------------------------------------------------------
 

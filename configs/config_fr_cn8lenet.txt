@@ -1,0 +1,27 @@
+[model]
+base: 'CNSteerableLeNet'
+nrot: 8
+early_stopping: True
+quiet: True
+
+[data]
+dataset: 'FRDEEPF'
+datadir: 'frdeepf'
+datamean: 0.0019
+datastd: 0.0270
+
+[training]
+batch_size: 50                  # samples per minibatch
+frac_val: 0.2                   # fraction of training set for validation
+epochs: 600                     # total number of epochs
+imsize: 50                      # pixels on side of image
+num_classes: 2                  # number of target classes
+lr0: 0.0001                     # initial learning rate
+decay: 0.000001                 # weight decay
+
+[output]
+csvfile: 'frdeepf_cn8lenet.csv'
+modfile: 'frdeepf_cn8lenet.pt'
+
+[metrics]
+outputdir: 'cn8lenet' 

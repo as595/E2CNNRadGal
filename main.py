@@ -97,7 +97,7 @@ with open(csvfile, 'w+', newline="") as f_out:
         writer = csv.writer(f_out, delimiter=',')
         writer.writerow(rows)
  
-_bestacc = 1e10
+_bestacc = 0.
 for epoch in range(epochs):  # loop over the dataset multiple times
     
     train_loss = train(model, train_loader, optimizer, device)
@@ -106,7 +106,7 @@ for epoch in range(epochs):  # loop over the dataset multiple times
     scheduler.step(test_loss)
 
     # check early stopping criteria:
-    if early_stopping and accuracy<_bestacc:
+    if early_stopping and accuracy>_bestacc:
         _bestacc = accuracy
         torch.save(model.state_dict(), modfile)
         best_acc = accuracy

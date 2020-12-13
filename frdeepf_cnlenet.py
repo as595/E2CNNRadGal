@@ -2,6 +2,7 @@ import torch
 
 from torch.utils.data import Dataset
 import torchvision.transforms as transforms
+from torch.utils.data import Subset
 from torchsummary import summary
 
 import os,sys

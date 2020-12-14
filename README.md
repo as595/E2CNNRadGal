@@ -17,45 +17,24 @@ An overview of the configuration file format can be found [here](./configs/READM
 In a Kaggle notebook you can make a local copy of the github repo quickly by running:
 
 ```python
-!git clone https://username:password@github.com/username/repository.git
+!git clone https://github.com/username/repository.git
 ```
 
-and replacing the ```username``` and ```password``` with your own github details. The down side to this is that your username and password are then openly visible in the notebook, which gets saved automatically to your Google Drive. To avoid that happening you can [do this](https://stackoverflow.com/a/57539179) instead:
+The repo will then appear as a folder in the working directory. To run the code as above you will need to import the [e2cnn]() library and the [torchsummary]() library:
 
 ```python
-import os
-from getpass import getpass
-import urllib
-```
-
-```python
-user = input('User name: ')
-password = getpass('Password: ')
-password = urllib.parse.quote(password) # your password is converted into url format
-repo_name = input('Repo name: ')
-```
-
-i.e. for me these would be:
-
-User name: as595 <br/>
-Password: ·········· <br/>
-Repo name: E2CNNRadGal <br/>
-
-```python
-cmd_string = 'git clone https://{0}:{1}@github.com/{0}/{2}.git'.format(user, password, repo_name)
-
-os.system(cmd_string)
-cmd_string, password = "", ""
-```
-
-The repo will then appear as a folder (left hand side) and you can run the code directly:
-
-```python
-%cd SDSS-AL-MSc/CODE/
+!pip install e2cnn
+!pip install torchsummary
 ```
 
 ```python
-%run sdss_mlp.py
+!python main.py --config configs/config_fr_lenet.txt
+```
+
+or
+
+```python
+%run main.py --config configs/config_fr_lenet.txt
 ```
 
 

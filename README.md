@@ -1,6 +1,6 @@
 # E2CNNRadGal
 
-This code will run in a Python 3.7 or 3.8 environment with all the relevant libraries installed (see requirements.txt). For the equivariant networks (CNSteerableLeNet, DNSteerableLeNet) you will probably want to use a GPU for speed. For the VanillaLeNet, you're better off on a CPU.
+This code will run in a Python 3.7 or 3.8 environment with all the relevant libraries installed (see requirements.txt). For training the equivariant [models](./models.py) (CNSteerableLeNet, DNSteerableLeNet) you will probably want to use a GPU for speed. For the VanillaLeNet, you're better off on a CPU.
 
 ## Run the code
 

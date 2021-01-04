@@ -54,7 +54,7 @@ normalise= transforms.Normalize((config_dict['data']['datamean'],), (config_dict
 transform = transforms.Compose([
     crop,
     pad,
-#    transforms.RandomRotation(360, resample=Image.BILINEAR, expand=False),
+    transforms.RandomRotation(360, resample=Image.BILINEAR, expand=False),
     totensor,
     normalise,
 ])

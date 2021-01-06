@@ -17,6 +17,7 @@ class VanillaLeNet(nn.Module):
         
         z = 0.5*(imsize - 2)
         z = int(0.5*(z - 2))
+        z = 18496
         
         self.mask = utils.build_mask(imsize, margin=1)
 
@@ -62,8 +63,7 @@ class VanillaLeNet(nn.Module):
         x = F.max_pool2d(x, 2)
         
         x = x.view(x.size()[0], -1)
-        print(x.size())
-        stop
+        
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
         x = self.drop(x)

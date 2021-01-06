@@ -51,13 +51,9 @@ This demo uses [visualisation code from the E2CNN repo](https://github.com/QUVA-
 
 ![Equivariant CNN output](https://github.com/as595/E2CNNRadGal/blob/main/visualisations/mbtest_25_mixed.gif)
 
-The invariance of the features in the comoving frame validates the rotational equivariance of E(2)-steerable CNNs empirically.
-Note that the fluctuations of responses are discretization artifacts due to the sampling of the image on a pixel grid, which does not allow for exact continuous rotations.
-<!-- Note that the fluctuations of responses are due to discretization artifacts coming from the  -->
+For comparison, this is the response of a standard CNN:
 
-For comparison, we show a feature map response of a conventional CNN for different image orientations below.
-
-![Conventional CNN output](https://github.com/QUVA-Lab/e2cnn/raw/master/visualizations/conventional_cnn.gif)
+![Conventional CNN output](https://github.com/as595/E2CNNRadGal/blob/main/visualisations/mbtest_25_scalar.gif)
 
 Since conventional CNNs are not equivariant under rotations, the response varies randomly with the image orientation.
 This prevents CNNs from automatically generalizing learned patterns between different reference frames.

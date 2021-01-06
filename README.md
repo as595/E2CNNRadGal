@@ -47,10 +47,7 @@ Configuration files are provided for experiments using the [FRDEEP]() and [MiraB
 
 ## Demo 
 
-Since E(2)-steerable CNNs are equivariant under rotations and reflections, their inference is independent from the choice of image orientation.
-The visualization below demonstrates this claim by feeding rotated images into a randomly initialized E(2)-steerable CNN (left).
-The middle plot shows the equivariant transformation of a feature space, consisting of one scalar field (color-coded) and one vector field (arrows), after a few layers.
-In the right plot we transform the feature space into a comoving reference frame by rotating the response fields back (stabilized view).
+This demo uses [visualisation code from the E2CNN repo](https://github.com/QUVA-Lab/e2cnn/blob/master/visualizations/animation.py) to show that the inference of an E(2)-steerable CNN is invariant under rotation. The left plot shows a radio galaxy image taken from the MiraBest test sample (#25). The middle plot shows the equivariant transformation of a feature space, consisting of one scalar field (color-coded) and one vector field (arrows), after a few layers. The right plot shows the feature space transformed into a comoving reference frame (stabilized view).
 
 ![Equivariant CNN output](https://github.com/QUVA-Lab/e2cnn/raw/master/visualizations/vectorfield.gif)
 

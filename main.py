@@ -84,7 +84,7 @@ else:
 # -----------------------------------------------------------------------------
 
 
-model = locals()[config_dict['model']['base']](1, nclass, imsize+1, kernel_size=5, N=nrot).to(device)
+model = locals()[config_dict['model']['base']](1, nclass, imsize+1, kernel_size=7, N=nrot).to(device)
 
 if not quiet:
     summary(model, (1, imsize+1, imsize+1))

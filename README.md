@@ -49,7 +49,7 @@ Configuration files are provided for experiments using the [FRDEEP]() and [MiraB
 
 This demo uses [visualisation code from the E2CNN repo](https://github.com/QUVA-Lab/e2cnn/blob/master/visualizations/animation.py) to show that the inference of an E(2)-steerable CNN is invariant under rotation. The left plot shows a radio galaxy image taken from the MiraBest test sample (#25). The middle plot shows the equivariant transformation of a feature space, consisting of one scalar field (color-coded) and one vector field (arrows), after a few layers. The right plot shows the feature space transformed into a comoving reference frame (stabilized view).
 
-![Equivariant CNN output](https://github.com/QUVA-Lab/e2cnn/raw/master/visualizations/vectorfield.gif)
+![Equivariant CNN output](https://github.com/as595/E2CNNRadGal/raw/master/visualisations/mbtest_25_mixed.gif)
 
 The invariance of the features in the comoving frame validates the rotational equivariance of E(2)-steerable CNNs empirically.
 Note that the fluctuations of responses are discretization artifacts due to the sampling of the image on a pixel grid, which does not allow for exact continuous rotations.

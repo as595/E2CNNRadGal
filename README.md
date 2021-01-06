@@ -57,3 +57,8 @@ For comparison, this is the response of a standard CNN:
 
 Since conventional CNNs are not equivariant under rotations, the response varies randomly with the image orientation.
 This prevents CNNs from automatically generalizing learned patterns between different reference frames.
+
+
+## Acknowledgements
+
+The code in this repo makes extensive use of the wonderful `e2cnn` PyTorch extension library: [e2cnn](https://github.com/QUVA-Lab/e2cnn)

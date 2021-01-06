@@ -17,7 +17,7 @@ An overview of the configuration file format can be found [here](./configs/READM
 In a Kaggle notebook you can make a local copy of the github repo quickly by running:
 
 ```python
-!git clone https://github.com/username/repository.git
+!git clone https://github.com/as595/E2CNNRadGal.git
 ```
 
 The repo will then appear as a folder in the working directory. To run the code as above you will need to import the [e2cnn]() library and the [torchsummary]() library:

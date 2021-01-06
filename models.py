@@ -62,7 +62,8 @@ class VanillaLeNet(nn.Module):
         x = F.max_pool2d(x, 2)
         
         x = x.view(x.size()[0], -1)
-        
+        print(x.size())
+        stop
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
         x = self.drop(x)

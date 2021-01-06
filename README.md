@@ -40,7 +40,7 @@ or
 
 ## Data
 
-Configuration files are provided for experiments using the and [MiraBest](https://zenodo.org/record/4288837#.X_XjDC-l3Aw) batched data set. If you use this data set please cite:
+Configuration files are provided for experiments using the [MiraBest](https://zenodo.org/record/4288837#.X_XjDC-l3Aw) batched data set. If you use this data set please cite:
 
 * [MiraBest](https://zenodo.org/record/4288837#.X_XjDC-l3Aw) : Fiona Porter, Anna M. M. Scaife et al., **2020** [Zenodo: 10.5281/zenodo.4288837](https://zenodo.org/record/4288837#.X_XjDC-l3Aw)
 

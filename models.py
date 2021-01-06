@@ -17,7 +17,6 @@ class VanillaLeNet(nn.Module):
         
         z = 0.5*(imsize - 2)
         z = int(0.5*(z - 2))
-        z = 18496
         
         self.mask = utils.build_mask(imsize, margin=1)
 

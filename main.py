@@ -9,7 +9,7 @@ import numpy as np
 import csv
 from PIL import Image
 
-from models import VanillaLeNet, CNSteerableLeNet, DNSteerableLeNet
+from models import VanillaLeNet, CNSteerableLeNet, DNSteerableLeNet, DNRestrictedLeNet
 from utils import *
 from FRDEEP import FRDEEPF
 from MiraBest import MBFRConfident
@@ -62,17 +62,24 @@ transform = transforms.Compose([
 
 train_data = locals()[config_dict['data']['dataset']](config_dict['data']['datadir'], train=True, download=True, transform=transform)
 
-dataset_size = len(train_data)
-nval = int(frac_val*dataset_size)
+if frac_val>0.:
+    dataset_size = len(train_data)
+    nval = int(frac_val*dataset_size)
 
-indices = list(range(dataset_size))
-train_indices, val_indices = indices[nval:], indices[:nval]
+    indices = list(range(dataset_size))
+    train_indices, val_indices = indices[nval:], indices[:nval]
 
-train_sampler = Subset(train_data, train_indices)
-valid_sampler = Subset(train_data, val_indices)
+    train_sampler = Subset(train_data, train_indices)
+    valid_sampler = Subset(train_data, val_indices)
 
-train_loader = torch.utils.data.DataLoader(train_sampler, batch_size=batch_size, shuffle=True)
-test_loader = torch.utils.data.DataLoader(valid_sampler, batch_size=batch_size, shuffle=True)
+    train_loader = torch.utils.data.DataLoader(train_sampler, batch_size=batch_size, shuffle=True)
+    test_loader = torch.utils.data.DataLoader(valid_sampler, batch_size=batch_size, shuffle=True)
+else:
+    # setting frac_val to zero will use the test set for validation
+    train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, shuffle=True)
+    
+    test_data = locals()[config_dict['data']['dataset']](config_dict['data']['datadir'], train=False, download=True, transform=transform)
+    test_loader = torch.utils.data.DataLoader(valid_sampler, batch_size=batch_size, shuffle=True)
 
 # -----------------------------------------------------------------------------
 

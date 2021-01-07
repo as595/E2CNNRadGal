@@ -209,7 +209,7 @@ def fr_rotation_test(model, data, target, idx, device):
             output_list.append(torch.unsqueeze(F.softmax(x,dim=1), 0).cpu())
                                          
         # calculate the mean output for each target:
-        output_mean = np.squeeze(torch.cat(output_list, 0).mean(0).data.numpy())
+        output_mean = np.squeeze(torch.cat(output_list, 0).mean(0).data.cpu().numpy())
                                              
         # append per rotation output into list:
         outp_list.append(np.squeeze(torch.cat(output_list, 0).data.numpy()))
@@ -268,7 +268,7 @@ def fr_rotation_test(model, data, target, idx, device):
     for i in range(len(rotation_list)):
         inc = 0.5*(180./len(rotation_list))
         #positionimage(rotation_list[i]+inc, 0., a1, image_list[i][0, 0, :, :].data.numpy(), zoom=0.32)
-        positionimage(rotation_list[i]+inc, 0., a3, mask[0,0,:,:]*image_list[i][0, 0, :, :].data.numpy(), zoom=0.32)
+        positionimage(rotation_list[i]+inc, 0., a3, mask[0,0,:,:]*image_list[i][0, 0, :, :].data.cpu().numpy(), zoom=0.32)
         
     
     #fig1.tight_layout()

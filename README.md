@@ -37,6 +37,7 @@ or
 %run main.py --config configs/config_mb_lenet.txt
 ```
 
+An example Kaggle notebook can be found [here](https://www.kaggle.com/annascaife/e2cnnradgal).
 
 ## Data
 

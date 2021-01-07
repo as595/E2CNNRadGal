@@ -75,7 +75,8 @@ model = locals()[config_dict['model']['base']](1, nclass, imsize+1, kernel_size=
 metrics=[]
 
 # load saved model:
-model.load_state_dict(torch.load(modelfiles[0], map_location=torch.device('cpu')))
+#model.load_state_dict(torch.load(modelfiles[0], map_location=torch.device('cpu')))
+model.load_state_dict(torch.load(modelfiles[0]))
 
 rows = ['target', 'softmax prob', 'average overlap', 'overlap variance']
                         

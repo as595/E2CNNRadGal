@@ -190,7 +190,7 @@ def fr_rotation_test(model, data, target, idx):
         
         # make rotated image:
         rotation_matrix = torch.Tensor([[[np.cos(r/360.0*2*np.pi), -np.sin(r/360.0*2*np.pi), 0],
-                                         [np.sin(r/360.0*2*np.pi), np.cos(r/360.0*2*np.pi), 0]]])
+                                         [np.sin(r/360.0*2*np.pi), np.cos(r/360.0*2*np.pi), 0]]]).to(device)
         grid = F.affine_grid(rotation_matrix, data.size(), align_corners=True)
         data_rotate = F.grid_sample(data, grid, align_corners=True)
         image_list.append(data_rotate)

@@ -100,7 +100,7 @@ for i in range(0,N):
     x = model(data)
     p = F.softmax(x,dim=1)[0].detach().cpu().numpy()
     
-    av_overlap, std_overlap = fr_rotation_test(model, data, target, i)
+    av_overlap, std_overlap = fr_rotation_test(model, data, target, i, device)
     print(i, av_overlap, std_overlap)
     
     # create output row:

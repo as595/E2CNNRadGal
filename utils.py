@@ -205,8 +205,8 @@ def fr_rotation_test(model, data, target, idx):
         output_list, input_list = [], []
         for i in range(T):
             x = model(data_rotate)
-            input_list.append(torch.unsqueeze(x, 0))
-            output_list.append(torch.unsqueeze(F.softmax(x,dim=1), 0))
+            input_list.append(torch.unsqueeze(x, 0).cpu())
+            output_list.append(torch.unsqueeze(F.softmax(x,dim=1), 0).cpu())
                                          
         # calculate the mean output for each target:
         output_mean = np.squeeze(torch.cat(output_list, 0).mean(0).data.numpy())

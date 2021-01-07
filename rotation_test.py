@@ -75,26 +75,30 @@ model = locals()[config_dict['model']['base']](1, nclass, imsize+1, kernel_size=
 metrics=[]
 
 # load saved model:
-#model.load_state_dict(torch.load(modelfiles[0], map_location=torch.device('cpu')))
-model.load_state_dict(torch.load(modelfiles[0]))
+if use_cuda:
+    model.load_state_dict(torch.load(modelfiles[0]))
+else:
+    model.load_state_dict(torch.load(modelfiles[0], map_location=torch.device('cpu')))
 
 rows = ['target', 'softmax prob', 'average overlap', 'overlap variance']
                         
-with open(csvfile, 'w+', newline="") as f_out:
+with open(csvfile, 'a', newline="") as f_out:
         writer = csv.writer(f_out, delimiter=',')
         writer.writerow(rows)
 
-for i in range(44,N):
+for i in range(0,N):
 
     subset_indices = [i] # select your indices here as a list
     subset = torch.utils.data.Subset(test_data, subset_indices)
     testloader_ordered = torch.utils.data.DataLoader(subset, batch_size=1, shuffle=False)
     data, target = iter(testloader_ordered).next()
     
+    data = data.to(device)
+    
     # get straight prediction:
     model.eval()
     x = model(data)
-    p = F.softmax(x,dim=1)[0].detach().numpy()
+    p = F.softmax(x,dim=1)[0].detach().cpu().numpy()
     
     av_overlap, std_overlap = fr_rotation_test(model, data, target, i)
     print(i, av_overlap, std_overlap)

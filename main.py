@@ -13,6 +13,7 @@ from models import VanillaLeNet, CNSteerableLeNet, DNSteerableLeNet, DNRestricte
 from utils import *
 from FRDEEP import FRDEEPF
 from MiraBest import MBFRConfident
+from MingoLoTSS import MLFR
 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------

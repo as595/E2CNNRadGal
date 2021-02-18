@@ -37,8 +37,6 @@ or
 %run main.py --config configs/config_mb_lenet.txt
 ```
 
-An example Kaggle notebook can be found [here](https://www.kaggle.com/annascaife/e2cnnradgal).
-
 ## Data
 
 Configuration files are provided for experiments using the [MiraBest](https://zenodo.org/record/4288837#.X_XjDC-l3Aw) batched data set. If you use this data set please cite:

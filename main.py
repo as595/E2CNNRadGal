@@ -11,9 +11,9 @@ from PIL import Image
 
 from models import VanillaLeNet, CNSteerableLeNet, DNSteerableLeNet, DNRestrictedLeNet
 from utils import *
-from FRDEEP import FRDEEPF
+#from FRDEEP import FRDEEPF
 from MiraBest import MBFRConfident
-from MingoLoTSS import MLFR
+#from MingoLoTSS import MLFR
 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
